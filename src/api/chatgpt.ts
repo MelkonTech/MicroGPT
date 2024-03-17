@@ -12,16 +12,16 @@ enum MODEL_VERSIONS {
 
 
 export const generateResponse = async (promt: string, context: vscode.ExtensionContext) => {
-    const config = vscode.workspace.getConfiguration('coder');
+    const config = vscode.workspace.getConfiguration('MicroGPT');
     const apiKey = config.get<string>('chatGPTApiKey');
 
     if (!apiKey) {
-        vscode.window.showWarningMessage('ChatGPT API Key for Coder is not set.', 'Set API Key')
+        vscode.window.showWarningMessage('ChatGPT API Key for MicroGPT is not set.', 'Set API Key')
             .then(selection => {
                 // When the user clicks the "Set API Key" button, selection will be "Set API Key"
                 if (selection === 'Set API Key') {
                     // Trigger the command to open settings to the specific API key configuration
-                    vscode.commands.executeCommand('workbench.action.openSettings', 'Coder Configuration');
+                    vscode.commands.executeCommand('workbench.action.openSettings', 'MicroGPT Configuration');
                 }
             });
         return;
@@ -38,7 +38,7 @@ export const generateResponse = async (promt: string, context: vscode.ExtensionC
             stream: true,
         });
         let content = "";
-        const outputChannel = vscode.window.createOutputChannel("Coder Audit");
+        const outputChannel = vscode.window.createOutputChannel("MicroGPT Audit");
 
         for await (const chunk of stream) {
             content += chunk.choices[0]?.delta?.content || '';

@@ -10,7 +10,7 @@ export const generateChatGPTInput = async () => {
     let workspaceFolder = workspace[0];
     // Pattern to exclude common directories not typically included in version control
 
-    const config = vscode.workspace.getConfiguration('coder');
+    const config = vscode.workspace.getConfiguration('MicroGPT');
     const allowedFileExtensions = config.get<string[]>('allowedFileExtensions');
     const excludePatterns = config.get<string[]>('excludePatterns') || [];
     const excludePatternsGroup = `{${excludePatterns.map(pattern => `**/${pattern}/**`).join(',')}}`;

@@ -12,7 +12,7 @@ export const analyzeCode = async (context: vscode.ExtensionContext) => {
 
     vscode.window.withProgress({
         location: vscode.ProgressLocation.Notification,
-        title: "Coder: Analyzing code...",
+        title: "MicroGPT: Analyzing code...",
         cancellable: false
     }, async () => {
 
