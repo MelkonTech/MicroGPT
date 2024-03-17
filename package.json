@@ -1,0 +1,63 @@
+{
+  "name": "coder",
+  "displayName": "coder",
+  "description": "This is an MVP version of coder which is an extension for integrating the code with the ChatGPT which will anaylise the code and write a feedback about it.",
+  "version": "0.0.2",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MelkonTech/coder.git"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other",
+    "Linters",
+    "Formatters",
+    "Testing",
+    "Debuggers"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Coder Configuration",
+      "properties": {
+        "coder.chatGPTApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "ChatGPT API Key for Coder Extension"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "coder.analyzeCode",
+        "title": "Analyze Code with coder"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.87.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "@vscode/test-cli": "^0.0.6",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "openai": "^4.29.1"
+  }
+}
