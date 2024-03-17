@@ -38,11 +38,11 @@ export const generateResponse = async (promt: string, context: vscode.ExtensionC
             stream: true,
         });
         let content = "";
-        const outputChannel = vscode.window.createOutputChannel("MicroGPT Audit");
-
+        // Temporary disabled
+        // const outputChannel = vscode.window.createOutputChannel("MicroGPT Audit");
         for await (const chunk of stream) {
             content += chunk.choices[0]?.delta?.content || '';
-            outputContent(chunk.choices[0]?.delta?.content || '', content, outputChannel);
+            outputContent(chunk.choices[0]?.delta?.content || '', content);
         }
 
 

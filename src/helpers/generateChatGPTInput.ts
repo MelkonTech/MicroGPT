@@ -39,5 +39,6 @@ export const generateChatGPTInput = async () => {
 
     const chatGPTPrompt = config.get<string>('chatGPTPrompt');
     chatGPTPrompt && input.push(chatGPTPrompt);
+
     return input;
 };
