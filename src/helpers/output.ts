@@ -30,7 +30,7 @@ let webviewPanel: vscode.WebviewPanel | null = null;
 function showOrUpdateFeedbackPanel(feedback: string): void {
     if (webviewPanel) {
         // Panel already exists, update its content
-        webviewPanel.webview.html = generateFeedbackHtml(feedback);
+        // webviewPanel.webview.html = generateFeedbackHtml(feedback);
         webviewPanel.reveal(); // Bring the webview to the foreground
     } else {
         // Create and show a new webview
@@ -56,5 +56,6 @@ export const outputContent = async (output: string, fullContent: string, outputC
     outputChannel.show(true); // Brings the Output Channel into view
     outputChannel.append(output);
 
-    showOrUpdateFeedbackPanel(fullContent);
+    // TEMPORARY DISABLED
+    // showOrUpdateFeedbackPanel(fullContent);
 };

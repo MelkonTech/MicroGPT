@@ -1,8 +1,8 @@
 {
   "name": "CoderGPT",
   "displayName": "CoderGPT",
-  "description": "This is an MVP version of coder which is an extension for integrating the code with the ChatGPT which will anaylise the code and write a feedback about it.",
-  "version": "0.0.3",
+  "description": "Coder is a cutting-edge Visual Studio Code extension designed to elevate your coding experience by providing instant, AI-powered feedback on your code. Leveraging the advanced capabilities of ChatGPT, coder analyzes your code in real-time, offering suggestions, identifying potential issues, and enhancing your overall code quality.",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.87.0"
   },
@@ -20,7 +20,9 @@
     "Testing",
     "Debuggers"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "workspaceContains:**/*"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "configuration": {
@@ -30,15 +32,122 @@
           "type": "string",
           "default": "",
           "description": "ChatGPT API Key for Coder Extension"
+        },
+        "coder.allowedFileExtensions": {
+          "type": "array",
+          "default": [
+            "js",
+            "ts",
+            "py",
+            "java",
+            "c",
+            "cpp",
+            "cs",
+            "go",
+            "rs",
+            "rb",
+            "php",
+            "swift",
+            "kt",
+            "dart",
+            "r",
+            "scala",
+            "groovy",
+            "pl",
+            "lua",
+            "hs",
+            "ex",
+            "clj",
+            "fs",
+            "ml",
+            "scm",
+            "rkt",
+            "lisp",
+            "erl",
+            "jl",
+            "nim",
+            "pas",
+            "html",
+            "css",
+            "scss",
+            "json",
+            "yaml",
+            "xml",
+            "toml",
+            "md",
+            "txt"
+          ],
+          "description": "List of file extensions that are allowed to be analyzed by Coder"
+        },
+        "coder.allowedLanguages": {
+          "type": "array",
+          "default": [
+            "javascript",
+            "typescript",
+            "python",
+            "java",
+            "c",
+            "c++",
+            "c#",
+            "go",
+            "rust",
+            "ruby",
+            "php",
+            "swift",
+            "kotlin",
+            "dart",
+            "r",
+            "scala",
+            "groovy",
+            "perl",
+            "lua",
+            "haskell",
+            "elixir",
+            "clojure",
+            "f#",
+            "ocaml",
+            "scheme",
+            "racket",
+            "commonlisp",
+            "erlang",
+            "julia",
+            "nim",
+            "pascal",
+            "html",
+            "css",
+            "scss",
+            "json",
+            "yaml",
+            "xml",
+            "toml",
+            "markdown",
+            "plaintext"
+          ],
+          "description": "List of languages that will trigger the Coder whenever file change is done"
+        },
+        "coder.excludePatterns": {
+          "type": "array",
+          "default": [
+            "node_modules",
+            "venv",
+            ".git",
+            "virtualenv"
+          ],
+          "description": "List of file patterns that should be excluded from analysis"
+        },
+        "coder.chatGPTPromt": {
+          "type": "string",
+          "default": "Audit the project and the code: do I have errors? or warnings, what to imporve?",
+          "description": "The prompt that will be used for ChatGPT to analyze the code"
         }
-      }
-    },
-    "commands": [
-      {
-        "command": "coder.analyzeCode",
-        "title": "Analyze Code with coder"
-      }
-    ]
+      },
+      "commands": [
+        {
+          "command": "coder.analyzeCode",
+          "title": "Analyze Code with coder"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run compile",

@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { findFiles } from '../helpers/findFiles';
+import { generateChatGPTInput } from '../helpers/generateChatGPTInput';
 import { generateResponse } from '../api/chatgpt';
 
 
@@ -16,7 +16,7 @@ export const analyzeCode = async (context: vscode.ExtensionContext) => {
         cancellable: false
     }, async () => {
 
-        const content = await findFiles();
+        const content = await generateChatGPTInput();
 
         await generateResponse(content.join(' '), context);
     });

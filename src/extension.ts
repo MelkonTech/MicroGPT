@@ -9,8 +9,11 @@ export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand('coder.analyzeCode', () => analyzeCode(context));
 	context.subscriptions.push(disposable);
 	// Registering an event listener for the onDidSaveTextDocument event
+	const config = vscode.workspace.getConfiguration('coder');
+	const allowedLanguages = config.get<string[]>('allowedLanguages') || [];
+
 	vscode.workspace.onDidSaveTextDocument((document) => {
-		if (document.languageId === 'javascript' || document.languageId === 'python') { // Adjust according to supported languages
+		if (allowedLanguages.includes(document.languageId)) {
 			vscode.commands.executeCommand('coder.analyzeCode');
 		}
 	});
