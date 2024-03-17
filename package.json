@@ -1,15 +1,17 @@
 {
-  "name": "coder",
-  "displayName": "coder",
+  "name": "CoderGPT",
+  "displayName": "CoderGPT",
   "description": "This is an MVP version of coder which is an extension for integrating the code with the ChatGPT which will anaylise the code and write a feedback about it.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.87.0"
   },
+  "publisher": "MelkonTech",
   "repository": {
     "type": "git",
     "url": "https://github.com/MelkonTech/coder.git"
   },
+  "icon": "images/CoderLogo.webp",
   "categories": [
     "Programming Languages",
     "Other",

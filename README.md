@@ -1,6 +1,6 @@
-# coder for Visual Studio Code
+# Coder for Visual Studio Code
 
-coder is a cutting-edge Visual Studio Code extension designed to elevate your coding experience by providing instant, AI-powered feedback on your code. Leveraging the advanced capabilities of ChatGPT, coder analyzes your code in real-time, offering suggestions, identifying potential issues, and enhancing your overall code quality.
+Coder is a cutting-edge Visual Studio Code extension designed to elevate your coding experience by providing instant, AI-powered feedback on your code. Leveraging the advanced capabilities of ChatGPT, coder analyzes your code in real-time, offering suggestions, identifying potential issues, and enhancing your overall code quality.
 
 ## Features
 
