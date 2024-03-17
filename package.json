@@ -1,8 +1,8 @@
 {
   "name": "CoderGPT",
   "displayName": "CoderGPT",
-  "description": "Coder is a cutting-edge Visual Studio Code extension designed to elevate your coding experience by providing instant, AI-powered feedback on your code. Leveraging the advanced capabilities of ChatGPT, coder analyzes your code in real-time, offering suggestions, identifying potential issues, and enhancing your overall code quality.",
-  "version": "1.0.0",
+  "description": "Coder is a cutting-edge Visual Studio Code extension designed to elevate your coding experience by providing instant, AI-powered feedback on your code. Leveraging the advanced capabilities of ChatGPT, Coder analyzes your code in real-time, offering suggestions, identifying potential issues, and enhancing your overall code quality.",
+  "version": "1.0.1",
   "engines": {
     "vscode": "^1.87.0"
   },
@@ -38,6 +38,8 @@
           "default": [
             "js",
             "ts",
+            "jsx",
+            "tsx",
             "py",
             "java",
             "c",
@@ -123,7 +125,7 @@
             "markdown",
             "plaintext"
           ],
-          "description": "List of languages that will trigger the Coder whenever file change is done"
+          "description": "List of languages that will trigger the Coder whenever a file change is done"
         },
         "coder.excludePatterns": {
           "type": "array",
@@ -135,16 +137,16 @@
           ],
           "description": "List of file patterns that should be excluded from analysis"
         },
-        "coder.chatGPTPromt": {
+        "coder.chatGPTPrompt": {
           "type": "string",
-          "default": "Audit the project and the code: do I have errors? or warnings, what to imporve?",
+          "default": "Audit the project and the code: do I have errors? or warnings, what to improve?",
           "description": "The prompt that will be used for ChatGPT to analyze the code"
         }
       },
       "commands": [
         {
           "command": "coder.analyzeCode",
-          "title": "Analyze Code with coder"
+          "title": "Analyze Code with Coder"
         }
       ]
     }

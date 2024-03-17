@@ -37,7 +37,7 @@ export const generateChatGPTInput = async () => {
         + " file content: " + vscode.window.activeTextEditor?.document.getText()
     );
 
-    const chatGPTPromt = config.get<string>('chatGPTPromt');
-    chatGPTPromt && input.push(chatGPTPromt);
+    const chatGPTPrompt = config.get<string>('chatGPTPrompt');
+    chatGPTPrompt && input.push(chatGPTPrompt);
     return input;
 };
